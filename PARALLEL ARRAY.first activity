@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+class Student {
+    String name;
+    int score;
+}
+
+public class TestScores {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of students: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        Student[] students = new Student[n];
+
+        // input part
+        for(int i = 0; i < n; i++) {
+            students[i] = new Student();
+            System.out.print("Enter student " + (i+1) + " name: ");
+            students[i].name = sc.nextLine();
+            System.out.print("Enter score: ");
+            students[i].score = sc.nextInt();
+            sc.nextLine();
+        }
+
+        // find highest, lowest and average
+        int highest = students[0].score;
+        int lowest = students[0].score;
+        int sum = 0;
+
+        for(int i = 0; i < n; i++) {
+            if(students[i].score > highest) {
+                highest = students[i].score;
+            }
+            if(students[i].score < lowest) {
+                lowest = students[i].score;
+            }
+            sum += students[i].score;
+        }
+
+        double average = (double) sum / n;
+
+        // output part
+        System.out.println("\nSummary of Scores:");
+        for(int i = 0; i < n; i++) {
+            System.out.println(students[i].name + " = " + students[i].score);
+        }
+
+        System.out.println("\nHighest is " + highest);
+        System.out.println("Lowest is " + lowest);
+        System.out.println("Average is " + average);
+
+        sc.close();
+    }
+}
