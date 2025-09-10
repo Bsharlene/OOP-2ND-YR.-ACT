@@ -1,0 +1,80 @@
+/** Badilles, Sharlene Jhoy H.
+    Activity no.3
+    Encapsulation
+*/
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Student s1 = new Student("sha", "2487806", 19, 1.4201);
+        Student s2 = new Student("Wingezel", "2456942", 20, 1.3102);
+
+        //  data
+        s1.setGpa(1.4201);
+        s2.setAge(19);
+
+        
+        s1.printInfo();
+        System.out.println();
+        s2.printInfo();
+    }
+}
+
+class Student {
+    // Private2x
+    private String name;
+    private String studId;
+    private int age;
+    private double gpa;
+
+    // Constructor
+    public Student(String name, String studId, int age, double gpa) {
+        this.name = name;
+        this.studId = studId;
+        this.age = age;
+        this.gpa = gpa;
+    }
+
+    // Getters
+    public String getName() {
+        return name;
+    }
+
+    public String getStudtId() {
+        return studId;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public double getGpa() {
+        return gpa;
+    }
+
+    // Setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStudId(String studId) {
+        this.studId = studId;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
+
+    // Method to print student infos
+    public void printInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Student ID: " + studId);
+        System.out.println("Age: " + age);
+        System.out.println("GPA: " + gpa);
+    }
+}
+
