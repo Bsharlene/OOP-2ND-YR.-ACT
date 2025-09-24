@@ -1,0 +1,106 @@
+/**Group 4: Library System
+   Members:
+   Largado
+   Parro
+   Badilles
+   Vinzon
+   Sevillano
+   Mercado
+**/
+abstract class LibraryItem {
+    private String title;
+    private String author;
+    private boolean isBorrowed;
+   
+    LibraryItem(String title, String author, boolean isBorrowed) {
+        this.title = title;
+        this.author = author;
+        this.isBorrowed = isBorrowed;
+    }
+   
+    public abstract void borrow();
+   
+    public String getTitle() {
+        return title;
+    }
+   
+    public String getAuthor() {
+        return author;
+    }
+   
+    public void setTitle(String title) {
+        this.title = title;
+    }
+   
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+   
+    public boolean isBorrowed() {
+        return isBorrowed;
+    }
+   
+    public void setBorrowed(boolean isBorrowed) {
+        this.isBorrowed = isBorrowed;
+    }
+}
+
+class Book extends LibraryItem {
+    Book(String title, String author, boolean isBorrowed) {
+        super(title, author, isBorrowed);
+    }
+      
+    @Override
+    public void borrow() {
+        if (!isBorrowed()) {
+            setBorrowed(true);
+            System.out.println(getTitle() + " by " + getAuthor() + " successfully borrowed!");
+        } else {
+            System.out.println(getTitle() + " is already borrowed :(");
+        }
+    } 
+}
+
+class Magazine extends LibraryItem {
+    Magazine(String title, boolean isBorrowed) {
+        super(title, null, isBorrowed); 
+    }
+      
+    @Override
+    public void borrow() {
+        if (!isBorrowed()) {
+            setBorrowed(true);
+            System.out.println(getTitle() + " successfully borrowed!");
+        } else {
+            System.out.println(getTitle() + " is already borrowed :(");
+        }
+    }
+}
+
+class DVD extends LibraryItem {
+    DVD(String title, String director, boolean isBorrowed) {
+        super(title, director, isBorrowed);
+    }
+      
+    @Override
+    public void borrow() {
+        if (!isBorrowed()) {
+            setBorrowed(true);
+            System.out.println(getTitle() + " by " + getAuthor() + " successfully borrowed!");
+        } else {
+            System.out.println(getTitle() + " is already borrowed :(");
+        }
+    }
+}
+
+public class LibrarySystemAct_5 {
+    public static void main(String[] args) {
+        LibraryItem book = new Book("Bible", "Jesus", false);
+        LibraryItem magazine = new Magazine("VOGUE", false);
+        LibraryItem dvd = new DVD("Power Rangers", "Dean Israelite", true);
+        
+        book.borrow();
+        magazine.borrow();
+        dvd.borrow();
+    }
+}
